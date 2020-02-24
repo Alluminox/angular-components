@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { EmployeeService, EmployeeType } from '../../services/employee.service';
 
 
 @Component({
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class EmployeeListComponent {
 
+  @Input()
+  data: EmployeeType[] = [];
+
+  constructor() {}
 }

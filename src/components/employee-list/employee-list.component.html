@@ -8,17 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Luniane</td>
-      <td>20</td>
-      <td [salaryColor]="15000">15000</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Obede</td>
-      <td>22</td>
-      <td [salaryColor]="25000">25000</td>
+    <tr *ngFor="let employee of data">
+      <td>0</td>
+      <td [innerHTML]="employee.name"></td>
+      <td [innerHTML]="employee.age"></td>
+      <td [salaryColor]="employee.salary"></td>
     </tr>
   </tbody>
 </table>

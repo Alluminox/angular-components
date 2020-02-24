@@ -1,18 +1,21 @@
 <form action="#">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" id="name" placeholder="Input your name">
+    <input type="text" class="form-control" name="name" id="name" placeholder="Input your name"
+    ([ngModel])="employee.name" >
   </div>
 
   <div class="form-group">
     <label for="age">Age</label>
-    <input type="number" class="form-control" name="age" id="age" placeholder="Input your age">
+    <input type="number" class="form-control" name="age" id="age" placeholder="Input your age"
+    ([ngModel])="employee.age">
   </div>
 
   <div class="form-group">
     <label for="salary">Salary</label>
-    <input type="number" class="form-control" name="salary" id="salary" placeholder="Input your salary">
+    <input type="number" class="form-control" name="salary" id="salary" placeholder="Input your salary"
+    ([ngModel])="employee.salary">
   </div>
 
-  <button class="btn btn-success" type="button">Save Employee</button>
+  <button class="btn btn-success" type="button" (click)="saveEmployee()">Save Employee</button>
 </form>

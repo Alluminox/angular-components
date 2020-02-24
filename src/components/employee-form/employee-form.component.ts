@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmployeeService, EmployeeType } from 'src/services/employee.service';
 
 @Component({
   selector: 'employee-form',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class EmployeeFormComponent {
 
+  employee: EmployeeType = {
+    name: '',
+    age: 0,
+    salary: 0
+  }
+
+  constructor(private employeeService: EmployeeService) {
+
+  }
+
+  saveEmployee() {
+    this.employeeService.add(this.employee);
+    this.employee = {
+      name: '',
+      age: 0,
+      salary: 0
+    }
+  }
 }

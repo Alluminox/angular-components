@@ -8,12 +8,14 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class SalaryColorDirective {
 
-  @Input() salaryColor: number;
-
   constructor(private element: ElementRef) {
-    // Trabalhando com o elemento nativo
-  
-    this.element.nativeElement.style.color = 
-      this.salaryColor * 1 > 20000.0 ? 'green' : 'red';
+    
   }
+    
+  @Input() 
+  set salaryColor(value: string) {
+    const el: HTMLElement = this.element.nativeElement;
+    el.style.color = parseFloat(value) >= 20000.0 ? 'green' : 'red';
+  }
+
 }

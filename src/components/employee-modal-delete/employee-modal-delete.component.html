@@ -1,0 +1,19 @@
+<div class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete employee {{employee?.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="employee">
+        Do you want to remove the Employee {{employee?.name}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="toggle()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-danger" (click)="destroyEmployee()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

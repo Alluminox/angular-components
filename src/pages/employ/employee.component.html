@@ -1,12 +1,66 @@
 <div class="row">
-  <div class="col-12 mb-3">                
-    <button type="button" class="btn btn-primary" (click)="employeeFormModal()">
-      Create
-    </button>
+
+  <div class="col-12" *ngIf="showMessageSuccess">
+    <div class="alert alert-success">Employee "{{ employee?.name}}" has been created of success!</div>
+
   </div>
 
+
   <div class="col-12">
-    <employee-list></employee-list>
-    <employee-modal></employee-modal>
+
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <td colspan="5">
+            <div class="row">
+              <div class="col-sm-1">
+                <button type="button" class="btn btn-primary" (click)="employeeCreateFormModal()">
+                  Create
+                </button>
+              </div>
+
+              <div class="col-sm-10 ">
+                <div class="form-group row ml-auto">
+                  <label class="col-sm-2 col-form-label" for="#">Search Employee</label>
+                  <div class="col-sm-3">
+                    <input type="text" placeholder="search" class="form-control" name="search" [(ngModel)]="searchText">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeService.employees | search: searchText;">
+          <td>{{ employee.id }}</td>  
+          <td>{{ employee.name }}</td>  
+          <td>{{ employee.age }}</td>  
+          <td [salaryColor]="employee.salary">{{ employee.salary }}</td>
+          <td>
+            <button 
+              type="button" 
+              class="btn btn-success" 
+              (click)="employeeUpdateFormModal(employee)">Edit</button>
+
+            <button 
+              type="button" 
+              class="btn btn-danger" 
+              (click)="employeeDeleteFormModal(employee)">Destroy</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <employee-modal (onSubmit)="onNewEmployee($event)"></employee-modal>
+    <employee-modal-edit [employee]="employeeToEdit" (onSubmit)="onUpdateEmployee($event)" ></employee-modal-edit>
+    <employee-modal-delete [employee]="employeeToRemove" (onSubmit)="onDeleteEmployee($event)"></employee-modal-delete>
   </div>
 </div>
