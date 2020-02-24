@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EmployeeService, EmployeeType } from '../../services/employee.service';
+import { EmployeeType } from '../../services/employee.service';
 
 
 @Component({

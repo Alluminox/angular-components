@@ -1,15 +1,15 @@
 import { Component, ElementRef, EventEmitter, Output, Input } from '@angular/core';
-import { EmployeeType } from 'src/services/employee.service';
+import { EmployeeType } from '../../services/employee.service';
 
 declare const $: any;
 
 
 @Component({
-  selector: 'employee-modal-edit',
-  templateUrl: './employee-modal-edit.component.html',
-  styleUrls: [ './employee-modal-edit.component.scss']
+  selector: 'employee-modal-delete',
+  templateUrl: './employee-modal-delete.component.html',
+  styleUrls: [ './employee-modal-delete.component.scss']
 })
-export class EmployeeModalEditComponent {
+export class EmployeeModalDeleteComponent {
 
   @Input()
   employee: EmployeeType;
@@ -18,13 +18,12 @@ export class EmployeeModalEditComponent {
   Criando um atributo de saida que ira 'emitir um evento' que 'recebe como parametro'
   um objeto do tipo 'EmployeeType'
   */
-
   @Output()
   onSubmit: EventEmitter<EmployeeType> = new EventEmitter<EmployeeType>();
 
   constructor(private element: ElementRef) {}
 
-  updateEmployee() {
+  destroyEmployee() {
     this.onSubmit.emit(this.employee)
     this.toggle();
   }
@@ -39,7 +38,7 @@ export class EmployeeModalEditComponent {
     const nativeElement = this.element.nativeElement;
 
     // Cast para HTMLElement
-    return nativeElement.firstChild.firstChild as HTMLElement;
+    return nativeElement.firstChild as HTMLElement;
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeService, EmployeeType } from 'src/services/employee.service';
+import { EmployeeService, EmployeeType } from '../../services/employee.service';
 
 @Component({
   selector: 'employee-form',

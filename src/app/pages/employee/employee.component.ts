@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { EmployeeModalComponent } from 'src/components/employee-modal/employee-modal.component';
+import { EmployeeModalComponent } from '../../components/employee-modal/employee-modal.component';
 
 import { EmployeeType, EmployeeService } from '../../services/employee.service';
-import { EmployeeModalEditComponent } from 'src/components/employee-modal-edit/employee-modal-edit.component';
-import { EmployeeModalDeleteComponent } from 'src/components/employee-modal-delete/employee-modal-delete.component';
+import { EmployeeModalEditComponent } from '../../components/employee-modal-edit/employee-modal-edit.component';
+import { EmployeeModalDeleteComponent } from '../../components/employee-modal-delete/employee-modal-delete.component';
 
 @Component({
   selector: 'employee',

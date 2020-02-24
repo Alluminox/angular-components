@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { EmployeeModule } from '../pages/employ/employee.module';
+import { EmployeeModule } from './pages/employee/employee.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
