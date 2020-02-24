@@ -16,3 +16,5 @@ export class SearchPipe implements PipeTransform {
   }
 
 }
+
+// Convention Of Configuration -> C.O.C
