@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { SalaryColorDirective } from '../../directives/salary-color.directive';
 
+import { ModalComponent } from '../../components/modal/modal.component';
 import { EmployeeComponent } from './employee.component';
 import { EmployeeModalComponent } from '../../components/employee-modal/employee-modal.component';
 import { EmployeeListComponent } from '../../components/employee-list/employee-list.component';
@@ -14,6 +15,7 @@ import { SearchPipe } from '../../pipes/search.pipe';
 
 @NgModule({
   declarations: [
+    ModalComponent,
     EmployeeListComponent,
     EmployeeModalComponent,
     EmployeeModalEditComponent,

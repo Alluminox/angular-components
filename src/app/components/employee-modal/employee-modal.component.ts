@@ -1,16 +1,14 @@
-import { Component, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { EmployeeType, EmployeeService } from '../../services/employee.service';
-
-
-declare const $: any;
-
+import { ModalComponent } from '../modal/modal.component';
+import { Modable } from '../modal/modalable';
 
 @Component({
   selector: 'employee-modal',
   templateUrl: './employee-modal.component.html',
   styleUrls: [ './employee-modal.component.scss']
 })
-export class EmployeeModalComponent {
+export class EmployeeModalComponent extends Modable  {
 
   employee: EmployeeType = {
     name: '',
@@ -26,13 +24,10 @@ export class EmployeeModalComponent {
   @Output()
   onSubmit: EventEmitter<EmployeeType> = new EventEmitter<EmployeeType>();
 
-  constructor(private element: ElementRef, private employeeService: EmployeeService) {}
 
-  toggle() {
-    // Busca o modal do DOM e dá um show pela API que o BO4 disponibiliza
-    $(this.getModalElement()).modal('toggle');
+  constructor(private employeeService: EmployeeService) {
+    super()
   }
-
 
   saveEmployee() {
     this.employeeService.add(this.employee);
@@ -51,12 +46,6 @@ export class EmployeeModalComponent {
     this.toggle();
   }
 
-  private getModalElement() {
-    // Acessa o modal do DOM
-    const nativeElement = this.element.nativeElement;
 
-    // Cast para HTMLElement
-    return nativeElement.firstChild.firstChild as HTMLElement;
-  }
 }
 
