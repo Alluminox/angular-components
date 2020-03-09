@@ -1,4 +1,5 @@
-import { Component, Input, ElementRef, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnDestroy, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+
 
 declare const $: any;
 
@@ -13,6 +14,9 @@ OnInit, OnDestroy, OnChanges {
     @Input()
     title: string;
 
+    @Output()
+    onHide: EventEmitter<any> = new EventEmitter();
+
     constructor(private element: ElementRef) {}
 
     ngOnInit() {
@@ -20,6 +24,13 @@ OnInit, OnDestroy, OnChanges {
        nativeElement.querySelector("[modal-title]").classList.add('modal-title');
        nativeElement.querySelector("[modal-body]").classList.add('modal-body');
        nativeElement.querySelector("[modal-footer]").classList.add('modal-footer');
+
+       // Gerenciar um evento do bootstrap 'hidden.bs.modal' para quando um modal fechar
+        $(this.modalElement).on('hidden.bs.modal', e => {
+            this.onHide.emit(e);
+        });
+
+       // Gerenciar um evento do bootstrap 'show.bs.modal' para quando um modal abrir
     }
 
     ngOnDestroy(): void {

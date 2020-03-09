@@ -24,7 +24,6 @@ export class EmployeeModalComponent extends Modable  {
   @Output()
   onSubmit: EventEmitter<EmployeeType> = new EventEmitter<EmployeeType>();
 
-
   constructor(private employeeService: EmployeeService) {
     super()
   }
@@ -46,6 +45,10 @@ export class EmployeeModalComponent extends Modable  {
     this.toggle();
   }
 
+
+  hideEmployeeModal(event) {
+    console.log('Hide Event => ', event);
+  }
 
 }
 
