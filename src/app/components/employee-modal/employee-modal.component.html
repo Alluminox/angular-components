@@ -1,5 +1,5 @@
 <form action="#" (submit)="saveEmployee()">
-  <g-modal (onHide)="hideEmployeeModal($event)">
+  <g-modal (onHide)="hideEmployeeModal($event)" (onShow)="showEmployeeModal($event)">
     <h5 modal-title>Create new employee</h5>
 
     <div modal-body >

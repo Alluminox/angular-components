@@ -50,5 +50,9 @@ export class EmployeeModalComponent extends Modable  {
     console.log('Hide Event => ', event);
   }
 
+  showEmployeeModal(event) {
+    console.log('Show Event => ', event);
+  }
+
 }
 

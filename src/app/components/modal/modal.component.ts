@@ -17,6 +17,9 @@ OnInit, OnDestroy, OnChanges {
     @Output()
     onHide: EventEmitter<any> = new EventEmitter();
 
+    @Output()
+    onShow: EventEmitter<any> = new EventEmitter();
+
     constructor(private element: ElementRef) {}
 
     ngOnInit() {
@@ -31,6 +34,9 @@ OnInit, OnDestroy, OnChanges {
         });
 
        // Gerenciar um evento do bootstrap 'show.bs.modal' para quando um modal abrir
+       $(this.modalElement).on('shown.bs.modal', e => {
+           this.onShow.emit(e);
+       })
     }
 
     ngOnDestroy(): void {
